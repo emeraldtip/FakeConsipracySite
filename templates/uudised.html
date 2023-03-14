@@ -4,10 +4,17 @@
 
 {% block content %}
 <body>
-    <section id="INFO" class="content">
-        </div>
-          <p>I was testing</p>
-        </div>
-    </section>
+    </div class="content">
+      <p>I was testing</p>
+      <table border="0" cellpadding="20" cellspacing="0" width="100%">
+          {% for i in range((headlines|length/2)| int) %}
+              <tr style="height: 20hw;">
+                  <td><img src="{{links[i]}}" style="width: 10vw;"></td>
+                  <td><a href="{{headlines[i*2]}}" style="font-size: 1.5vw; vertical-align:top; color:white;">{{i+1}}. {{headlines[i*2+1]|safe}} </a></td>
+              </tr>
+          {% endfor %}
+      </table>
+    </div>
+    
 </body>
 {% endblock %}

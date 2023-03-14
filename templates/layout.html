@@ -8,13 +8,13 @@
   <ul>
     <li><a href="/">Avaleht</a></li>
     <li class="dropdown">
-      <a href="javascript:void(0)" class="dropbtn">Uudised</a>
+      <a href="/news" class="dropbtn">Uudised</a>
       <div class="dropdown-content">
-        {% for i in range(headlines.length)/2 %}
-          {% if i <=5 %}
-            {newlink = headlines[i*2]}
-            {newsart = i[i*2+1]}
-            <a href="{{newlink}}">{{newsart}}</a>
+        <b style="font-size: 24px;padding:5px;">Tänase päeva kõige kuumemad uudised:</b>
+        {% for i in range((headlines|length/2)| int) %}
+          {% if i <= 2 %}
+            <a href="{{headlines[i*2]}}">{{i+1}}. {{headlines[i*2+1]|safe}}</a>
+            {#I trust that the people writing the articles won't abuse this#}
           {% endif %}
         {% endfor %}
       </div>
