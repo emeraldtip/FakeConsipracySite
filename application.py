@@ -40,7 +40,8 @@ def home():
                 links.append("/uploads"+headlines[i*2]+"/"+file)
     bp = []
     with open("data/bulletin.txt","r",encoding="UTF8") as file:
-        bp = [line for line in file.readlines()]    
+        bp = [line for line in file.readlines()]
+    print(bp)    
     return render_template("default.html",headlines=getHeadlines(),links = links, bulletins = bp)
     
 @app.route("/about") #about section
@@ -79,13 +80,9 @@ def article(filename):
             with open("data/news/"+filename+"/"+i,"r",encoding="UTF8") as file:
                 lines = file.readlines()
                 title = lines.pop(0)
-                text = "<br><br>".join(lines)
+                text = "<br><br>".join(lines)+"<br>"
                 print(text)
     return render_template("article.html",headlines=getHeadlines(),plink=plink,psrc=psrc,authorp=authorp,author=author,title=title,text=text)
-
-@app.route("/bulletin") #bulletin board with ads, announcements etc
-def bulletin():
-    return render_template("bulletin.html",headlines=getHeadlines())
     
 @app.route("/puzzles") #puzzles for children or something idk
 def puzzles():

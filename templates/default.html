@@ -1,19 +1,18 @@
 <!doctype html>
-<title>Mida nad ei taha, et sa teaksid</title>
 {% extends "layout.html" %}
 
 {% block content %}
 <body>
     <center>
         <div style="width:85%;">
-            <div id="mainart" href="{{headlines[0]}}" style="width:50vw;height:90vh; background-image: url('{{links[0]}}'); background-size: 100%,100%; background-repeat: no-repeat; margin:0px; padding-left:20px; text-align: left; float:left; cursor: pointer;" onclick="window.location='{{headlines[0]}}'">
-                <a href="{{headlines[0]}}" style="color:white; font-size: 3vw; width:50vw; padding-left:10px;text-shadow: black 6px 6px 6px; bottom:60px; position: absolute;word-wrap: break-word; text">{{headlines[1]|safe}}</a>
+            <div id="mainart" href="{{headlines[0]}}" style="width:50vw;height:100vh; background-image: url('{{links[0]}}'); background-size: 100%,100%; background-repeat: no-repeat; margin:0px; padding-left:20px; text-align: left; float:left; cursor: pointer;" onclick="window.location='{{headlines[0]}}'">
+                <a href="{{headlines[0]}}" style="color:white; font-size: 3vw; width:50vw; padding-left:10px;text-shadow: black 6px 6px 6px; bottom:3vw; position: absolute;word-wrap: break-word; text">{{headlines[1]|safe}}</a>
             </div>
-            <div style="text-align:right;width:30vw;height:100%;float:right;background-color: #323232;bottom:0vw;top:9.8vw;right:8vw;position:absolute;">
-                <p style="top:10px; right:10px; position:relative; font-family: Helvetica, Verdana, sans-serif; color:white; font-size: 3vw;">Tänased teated:<br><br></p>
-                <ul>
+            <div style="text-align:right;width:30vw;height:100vh;float:right;background-color: #242424; bottom:0vw;top:0vw;right:0vw;position:relative;">
+                <p style="top:10px; right:1vw; position:relative; font-family: Helvetica, Verdana, sans-serif; color:white; font-size: 3vw; margin:0px;">Tänased teated<br><br></p>
+                <ul style="top:-3vw; position:relative">
                     {% for i in bulletins %}
-                    <li style="list-style-type:none; font-size:1vw; color:white; right:10px; position:relative;">{{i}}<br><br></li>
+                    <li style="list-style-type:none; font-size:2.5vh; color:white; right:1vw; position:relative;">{{i}}<br><br></li>
                     {% endfor %}
                 </ul>
             </div>
