@@ -9,6 +9,8 @@ app = Flask(__name__)
 #This is very nicely and well structured and totally not flawed and can totally be expanded as I very much care about what happens to this site after the short project is done
 #also for italic and bold text and ther text styling things you can use html tags
 
+rubriques = []
+
 def getHeadlines():
     headlines = []
     for item in os.listdir("data/news"):
@@ -30,7 +32,16 @@ def uplod(path):
     
 @app.route("/") #homepage with a few big news stories
 def home():
-    return render_template("default.html",headlines=getHeadlines())
+    headlines = getHeadlines()
+    links = [] #links to cover images
+    for i in range(int(len(headlines)/2)):
+        for file in os.listdir("data"+headlines[i*2]):
+            if file.endswith(".png"):
+                links.append("/uploads"+headlines[i*2]+"/"+file)
+    bp = []
+    with open("data/bulletin.txt","r",encoding="UTF8") as file:
+        bp = [line for line in file.readlines()]    
+    return render_template("default.html",headlines=getHeadlines(),links = links, bulletins = bp)
     
 @app.route("/about") #about section
 def about():
@@ -78,7 +89,8 @@ def bulletin():
     
 @app.route("/puzzles") #puzzles for children or something idk
 def puzzles():
-    return render_template("puzzles.html",headlines=getHeadlines())
+    dailyPuzzle = "/uploads/puzzles/"+os.listdir("data/puzzles")[0]
+    return render_template("puzzles.html",headlines=getHeadlines(), puzzle=dailyPuzzle)
 
 if __name__ == "__main__":
     app.run()

@@ -1,16 +1,15 @@
 {% extends "layout.html" %}
-
 {% block content %}
 <body>
  	<div class="content">
 		<div style="background-image: url('{{plink}}'); background-size: 100%,100%; background-repeat: no-repeat; margin:0px; padding-left:20px;" class="backimg">
-			<p style="font-size: 3vw;padding-left:10px;padding-bottom:500px;text-shadow: black 6px 6px 6px;">{{title|safe}}</p>
-			<p style="font-size: 1.8vw;">{{author}}</p>
+			<p style="color:white; font-size: 3vw;padding-left:10px;padding-bottom:500px;text-shadow: black 6px 6px 6px;">{{title|safe}}</p>
+			<p style="color:white; font-size: 1.8vw;">{{author}}</p>
 			<img src="{{authorp}}" width="100"> 
-			<p style="font-size: 1vw;">Pilt: {{psrc}}</p>
+			<p style="color:white; font-size: 1vw;">Pilt: {{psrc}}</p>
 		</div>
 		<div class="brumimg" style="padding-left:20px;margin-right:20px">
-			<p style="font-size: 2vw;">{{text|safe}}</p>
+			<p style="color:white;font-size: 2vw;">{{text|safe}}</p>
 		</div>
 	</div>
 </body>

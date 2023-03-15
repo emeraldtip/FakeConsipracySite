@@ -5,7 +5,7 @@
 <div id="header" class="header">
   <script src="/static/js/javascript.js"></script>
   <h1>Mida nad ei taha, et sa teaksid</h1>
-  <ul>
+  <ul class="navbar">
     <li><a href="/">Avaleht</a></li>
     <li class="dropdown">
       <a href="/news" class="dropbtn">Uudised</a>
@@ -18,14 +18,10 @@
           {% endif %}
         {% endfor %}
       </div>
-      <li><a href="/bulletin">Kuulutused</a></li>
       <li><a href="/puzzles">Lastele</a></li>
       <li><a href="/about">Saidist</a></li>
     </li>
   </ul>
 </div>
-
-
-
 {% block content %}
 {% endblock %}

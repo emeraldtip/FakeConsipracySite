@@ -3,20 +3,21 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<style>
-        body{
- background-image: url('background.jpg');
- background-size: cover;
- background-repeat: no-repeat;
- background-size: 800px 480px;
- 
-}
-</style>
-<body style="background-image: url('{{url_for('static', filename='kvej2.png')}}');'">
-    <section id="INFO" class="content">
+<body>
+    <center>
+        <div style="width:85%;">
+            <div id="mainart" href="{{headlines[0]}}" style="width:50vw;height:90vh; background-image: url('{{links[0]}}'); background-size: 100%,100%; background-repeat: no-repeat; margin:0px; padding-left:20px; text-align: left; float:left; cursor: pointer;" onclick="window.location='{{headlines[0]}}'">
+                <a href="{{headlines[0]}}" style="color:white; font-size: 3vw; width:50vw; padding-left:10px;text-shadow: black 6px 6px 6px; bottom:60px; position: absolute;word-wrap: break-word; text">{{headlines[1]|safe}}</a>
+            </div>
+            <div style="text-align:right;width:30vw;height:100%;float:right;background-color: #323232;bottom:0vw;top:9.8vw;right:8vw;position:absolute;">
+                <p style="top:10px; right:10px; position:relative; font-family: Helvetica, Verdana, sans-serif; color:white; font-size: 3vw;">Tänased teated:<br><br></p>
+                <ul>
+                    {% for i in bulletins %}
+                    <li style="list-style-type:none; font-size:1vw; color:white; right:10px; position:relative;">{{i}}<br><br></li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
-          <p><b><i>I was testing</b></i></p>
-        </div>
-    </section>
+    </center>
 </body>
 {% endblock %}
