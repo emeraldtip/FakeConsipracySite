@@ -7,7 +7,7 @@
     </div class="content">
       <table style="border-collapse: collapse;" cellpadding="20" cellspacing="0" width="100%">
           {% for i in range((headlines|length/2)| int) %}
-              <tr height="10px" style="height: 10px; border-bottom: 3px ridge white;">
+              <tr height="10px" style="height: 10px; border-bottom: 3px solid #323232;">
                   <td><img href="{{headlines[i*2]}}" src="{{links[i]}}" style="width: 10vw;cursor: pointer;" onclick="window.location='{{headlines[i*2]}}'"></td>
                   <td>
                       <a href="{{headlines[i*2]}}" style="text-decoration:none;font-size: 1.5vw; vertical-align:top; color:white;">{{i+1}}. {{headlines[i*2+1]|safe}}  <br></a>
