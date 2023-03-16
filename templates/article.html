@@ -1,11 +1,23 @@
 {% extends "layout.html" %}
 {% block content %}
+<script>
+	function popup()
+	{
+		console.log("poped")
+		document.getElementById("image_popup").style.display="block";
+	}
+	function closePop()
+	{
+		console.log("notpoped")
+		document.getElementById("image_popup").style.display="none";
+	}
+</script>
 <body>
  	<div class="content">
-		<div style="background-image: url('{{plink}}'); background-size: 100%,100%; background-repeat: no-repeat; margin:0px; padding-left:20px; right:0px; top:-6vh; position:relative;" class="backimg">
-			<p style="color:white; font-family: Helvetica, Verdana, sans-serif; font-size: 3vw;padding-left:10px;padding-bottom:500px;text-shadow: black 6px 6px 6px;">{{title|safe}}</p>
-			<p style="color:white; font-size: 1vw; float:right; position:relative; bottom:-60px; right:10px; text-shadow: black 2px 2px 2px;">Pilt: {{psrc}}</p>
-			<div class = "authorbox" style=" height:120px; position:relative; display: inline-block; left:-10px; bottom:10px; border-radius: 10px; background-color: rgba(24, 24, 24, 0.5);">
+		<div style="background-image: url('{{plink}}'); background-size: 100%,100%; background-repeat: no-repeat; margin:0px; padding-left:20px; right:0px; top:-6vh; position:relative; padding-bottom:20px; border-bottom: 5px solid white;" class="backimg" onclick="popup()">
+			<p style="color:white; font-family: Helvetica, Verdana, sans-serif; font-size: 3vw;padding-left:10px;padding-bottom:500px;text-shadow: black 6px 6px 6px;" onclick="closePop()">{{title|safe}}</p>
+			<p style="color:white; font-size: 1vw; float:right; position:relative; bottom:-60px; right:10px; text-shadow: black 2px 2px 2px;" onclick="closePop()">Pilt: {{psrc}}</p>
+			<div class = "authorbox" style=" height:120px; position:relative; display: inline-block; left:-10px; bottom:10px; border-radius: 10px; background-color: rgba(24, 24, 24, 0.5);" onclick="closePop()">
 				<table border="0" cellpadding="0" cellspacing="0" width="100%">
 					<tr>
 						<td style="width:140px"><img src="{{authorp}}" width="100" height="100" style="border-radius: 20px; padding-top:10; padding-left:10; margin:0; padding-right:0;" ></td>
@@ -16,6 +28,16 @@
 		</div>
 		<div class="brumimg" style="padding-left:20px; padding-right:20px; position:relative; top:-8vh;">
 			<p style="color:white;font-size: 2vw;">{{text|safe}}</p>
+		</div>
+	</div>
+	<!-- Very scuffed implementation of an image popup, but good enough -->
+	<div id="image_popup" style="position:absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color:#242424; display: none;">
+		<div class="close-btn-area">
+			<button onclick="closePop()"id="close-btn"style="font-size:2vw;float:right">X</button>
+			<p style="color:white; font-size: 2vw; font-family: Helvetica, Verdana, sans-serif; padding:0; padding-left:20px;">Pilt: {{psrc}}</p>
+		</div>
+		<div id="image-show-area">
+			<img id="large-image" style="max-width: 90%; height: auto; padding:20px;" src="{{plink}}"> 
 		</div>
 	</div>
 </body>
