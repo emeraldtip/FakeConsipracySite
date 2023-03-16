@@ -52,11 +52,15 @@ def about():
 def news():
     headlines = getHeadlines()
     links = [] #links to cover images
+    desc = []
     for i in range(int(len(headlines)/2)):
         for file in os.listdir("data"+headlines[i*2]):
             if file.endswith(".png"):
                 links.append("/uploads"+headlines[i*2]+"/"+file)
-    return render_template("uudised.html",headlines=headlines,links = links)
+            if file.endswith(".txt"):
+                with open("data"+headlines[i*2]+"/"+file, "r", encoding="UTF8") as f:
+                    desc.append(f.readlines()[1])
+    return render_template("uudised.html",headlines=headlines,links = links, desc = desc)
     
 @app.route("/news/<path:filename>") #generates the page for a news story on the spot
 def article(filename):

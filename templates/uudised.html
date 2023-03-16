@@ -3,13 +3,17 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<body>
+<body onload="truncate(100)">
     </div class="content">
       <table border="0" cellpadding="20" cellspacing="0" width="100%">
           {% for i in range((headlines|length/2)| int) %}
-              <tr style="height: 20hw;">
+              <tr height="10px" style="height: 10px;">
                   <td><img src="{{links[i]}}" style="width: 10vw;"></td>
-                  <td><a href="{{headlines[i*2]}}" style="font-size: 1.5vw; vertical-align:top; color:white;">{{i+1}}. {{headlines[i*2+1]|safe}} </a></td>
+                  <td>
+                      <a href="{{headlines[i*2]}}" style="text-decoration:none;font-size: 1.5vw; vertical-align:top; color:white;">{{i+1}}. {{headlines[i*2+1]|safe}}  <br></a>
+                      <a class="desc" href="{{headlines[i*2]}}" style="height:10px; text-decoration:none;font-size: 1.5vw; vertical-align:top; color:white;">{{desc[i]|safe}} </a>
+                      
+                  </td>
               </tr>
           {% endfor %}
       </table>
